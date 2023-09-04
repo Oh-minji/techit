@@ -1,6 +1,7 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.template import base
+from django.urls import reverse
 
 from Accountapp.models import Registration
 
@@ -15,13 +16,12 @@ def hello_world(request):
         reg.email = email
         reg.save()
 
-        reg_all = Registration.objects.all()
 
+        return HttpResponseRedirect(reverse("accountapp:hello_world"))
 
-        return render(request, "accountapp/Hello_World.html",
-                      context={"temp": email,
-                               "reg_all": reg_all})
+    reg_all = Registration.objects.all()
 
     temp = "stellup"
     return render(request, "accountapp/Hello_World.html",
-                  context = {"temp": temp})
+                  context = {"temp": temp,
+                             "reg_all" : reg_all})
