@@ -4,5 +4,5 @@ from django.db import models
 
 
 
-class registration(models.Model):
+class Registration(models.Model):
     email = models.CharField(max_length=255, null=False)
