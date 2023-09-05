@@ -6,7 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.template import base
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, DetailView, UpdateView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from Accountapp.forms import AccountUpdateForm
 from Accountapp.models import Registration
@@ -58,3 +58,9 @@ class AccountUpdateView(UpdateView):
     def get_success_url(self):
         return reverse("accountapp:detail",
                        kwargs={ "pk": self.kwargs["pk"]})
+
+class AccountDeleteView(DeleteView):
+    model = User
+    context_object_name = "target_user"
+    success_url = reverse_lazy('accountapp:hello_world')
+    template_name = "accountapp/delete.html"
