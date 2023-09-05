@@ -5,7 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.template import base
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 
 from Accountapp.models import Registration
 
@@ -41,3 +41,8 @@ class AccountLoginView(LoginView):
 
 class AccountLogoutView(LogoutView):
     pass
+
+class AccountDetailView(DetailView):
+    model = User
+    template_name = "accountapp/detail.html"
+    context_object_name = "target_user"
