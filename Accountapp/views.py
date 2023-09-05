@@ -1,3 +1,4 @@
+
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView, LogoutView
@@ -5,8 +6,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.template import base
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView
 
+from Accountapp.forms import AccountUpdateForm
 from Accountapp.models import Registration
 
 
@@ -46,3 +48,13 @@ class AccountDetailView(DetailView):
     model = User
     template_name = "accountapp/detail.html"
     context_object_name = "target_user"
+
+class AccountUpdateView(UpdateView):
+    model = User
+    form_class = AccountUpdateForm
+    context_object_name = "target_user"
+    template_name = "accountapp/update.html"
+
+    def get_success_url(self):
+        return reverse("accountapp:detail",
+                       kwargs={ "pk": self.kwargs["pk"]})

@@ -17,6 +17,16 @@ font-family: 'IBM Plex Sans KR', sans-serif;">
     <div style = "max-width: 900px; margin: auto; font-family: 'Gowun Batang', serif;
 font-family: 'IBM Plex Sans KR', sans-serif;">
         {{ target_user.date_joined }}
+
+        {% if user == target_user %}
+        <div>
+            <a href="{% url 'accountapp:update' pk=target_user.pk %}">
+            <div class="btn btn-warning rounded-pill px-5 my-5">
+                Update
+            </div>
+            </a>
+        </div>
+        {% endif %}
     </div>
 
 
