@@ -10,24 +10,20 @@
     <div class = "my-5", style = "font-family: 'Gowun Batang', serif;
 font-family: 'IBM Plex Sans KR', sans-serif;">
         <h1>
-            {{ target_user.profile.nickname }}
+            프로필 만들기
         </h1>
     </div>
 
     <div style = "max-width: 900px; margin: auto; font-family: 'Gowun Batang', serif;
 font-family: 'IBM Plex Sans KR', sans-serif;">
-        {{ target_user.date_joined }}
-
-        {% if user == target_user %}
-        <div>
-            <a href="{% url 'accountapp:update' pk=target_user.pk %}">
-            <div class="btn btn-warning rounded-pill px-5 my-5">
-                Update
-            </div>
-            </a>
-        </div>
-        {% endif %}
-    </div>
+        <form action = "{% url 'profileapp:create' %}" method = "post", enctype ="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <button class ="btn btn-secondary rounded-pill px-4 my-5" type = "submit">
+                Submit
+            </button>
+        </form>
+    </divstyle>
 
 
 </div>

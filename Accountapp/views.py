@@ -46,6 +46,8 @@ class AccountLoginView(LoginView):
 class AccountLogoutView(LogoutView):
     pass
 
+@method_decorator(login_required, 'get')
+@method_decorator(account_ownership_required, 'get')
 class AccountDetailView(DetailView):
     model = User
     template_name = "accountapp/detail.html"
