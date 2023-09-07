@@ -5,7 +5,11 @@
     </div>
     <div class = "mb-4" style = "font-family: 'Gowun Batang', serif;
 font-family: 'IBM Plex Sans KR', sans-serif;">
-         <span>선생님 소개 &nbsp;&nbsp;&nbsp;&nbsp;</span>
+         <span>
+             <a href="{% url 'articleapp:temp' %}">
+                 선생님 소개 &nbsp;&nbsp;&nbsp;&nbsp;
+             </a>
+         </span>
          <span>스텔업은? &nbsp;&nbsp;&nbsp;&nbsp;</span>
          <span>안내 &nbsp;&nbsp;&nbsp;&nbsp;</span>
         {% if user.is_authenticated %}
