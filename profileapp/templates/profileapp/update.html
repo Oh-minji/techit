@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load bootstrap4 %}
+
+{% block content %}
+
+
+<div class = "my-5 text-center">
+
+    <div class = "my-5", style = "font-family: 'Gowun Batang', serif;
+font-family: 'IBM Plex Sans KR', sans-serif;">
+        <h1>
+            프로필 업데이트
+        </h1>
+    </div>
+
+    <div style = "max-width: 900px; margin: auto; font-family: 'Gowun Batang', serif;
+font-family: 'IBM Plex Sans KR', sans-serif;">
+        <form action = "{% url 'profileapp:update' pk=target_profile.pk %}" method = "post", enctype ="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <button class ="btn btn-dark rounded-pill px-4 my-5" type = "submit">
+                Submit
+            </button>
+        </form>
+    </divstyle>
+
+
+</div>
+{% endblock %}
