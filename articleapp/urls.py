@@ -8,6 +8,7 @@ urlpatterns = [
     path('temp/', TempView.as_view(), name='temp'),
 
     path('create/', ArticleCreateView.as_view(), name='create'),
+    path('detail/<int:pk>/', ArticleDetialView.as_view(), name='detail'),
 ]
 
 
