@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load bootstrap4 %}
+
+{% block content %}
+
+
+<div class = "my-5 text-center">
+
+    <div class = "my-5", style = "font-family: 'Gowun Batang', serif;
+font-family: 'IBM Plex Sans KR', sans-serif;">
+        <h3>
+            게시글 삭제
+        </h3>
+        <p>
+            Delete article : {{ target_article.title }}
+        </p>
+    </div>
+
+    <div style = "max-width: 900px; margin: auto; font-family: 'Gowun Batang', serif;
+font-family: 'IBM Plex Sans KR', sans-serif;">
+        <form action = "{% url 'articleapp:delete' pk=target_article.pk %}" method = "post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <button class ="btn btn-danger rounded-pill px-4 my-5" type = "submit">
+                삭제
+            </button>
+        </form>
+    </divstyle>
+
+
+</div>
+{% endblock %}
