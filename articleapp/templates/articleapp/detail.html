@@ -24,12 +24,18 @@ cruelty_free
 </span><span style="vertical-align: top",>좋아요 : {{ target_article.like }}</span>
     </div>
     <div class ="my-5">
+        {% if target_article.writer %}
         <a href="{% url 'accountapp:detail' pk=target_article.writer.pk %}">
         <img style="width: 2.5rem; height: 2.5rem; objet-fit: cover;
                     border-radius: 50%;"
              src="{{ target_article.writer.profile.image.url }} " alt=" ">
         <span class ="mx-2"> {{ target_article.writer.profile.nickname }} </span>
         </a>
+        {% else %}
+        <h6>
+            익명
+        </h6>
+        {% endif %}
     </div>
 
     <hr class ="my-5">

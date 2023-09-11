@@ -30,6 +30,8 @@ urlpatterns = [
 
     path('articles/', include('articleapp.urls')),
 
+    path('comments/', include('commentapp.urls')),
+
     path('', ArticleListView.as_view(), name='home')
 
 ] + static(
