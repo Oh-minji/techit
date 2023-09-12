@@ -96,9 +96,13 @@ font-family: 'IBM Plex Sans KR', sans-serif;">
 
             {% if user == comment.writer %}
             <div class="text-end">
-                <a href="{% url 'commentapp:update' pk=comment.pk "
+                <a href="{% url 'commentapp:update' pk=comment.pk %}"
                    class="btn btn-success btn-sm rounded-pill px-4 py-0">
                     댓글 수정
+                </a>
+                <a href="{% url 'commentapp:delete' pk=comment.pk %}"
+                   class="btn btn-danger btn-sm rounded-pill px-4 py-0">
+                    댓글 삭제
                 </a>
             </div>
             {% endif %}
