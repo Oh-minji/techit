@@ -14,6 +14,7 @@ from Accountapp.decorators import account_ownership_required
 from Accountapp.forms import AccountUpdateForm
 from Accountapp.models import Registration
 from articleapp.models import Article
+from subscribeapp.models import Subscription
 
 
 # Create your views here.
@@ -54,8 +55,6 @@ class AccountLogoutView(LogoutView):
     pass
 
 
-@method_decorator(login_required, "get")
-@method_decorator(account_ownership_required, "get")
 class AccountDetailView(DetailView, MultipleObjectMixin):
     model = User
     template_name = "accountapp/detail.html"
@@ -64,7 +63,14 @@ class AccountDetailView(DetailView, MultipleObjectMixin):
 
     def get_context_data(self, **kwargs):
         object_list = Article.objects.filter(writer=self.object)
-        return super().get_context_data(object_list=object_list, **kwargs)
+
+        subscribed = Subscription.objects.filter(
+            user=self.request.user, target_user=self.object
+        )
+
+        return super().get_context_data(
+            object_list=object_list, subscribed=subscribed, **kwargs
+        )
 
 
 @method_decorator(login_required, "get")
