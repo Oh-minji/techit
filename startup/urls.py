@@ -22,19 +22,14 @@ from django.urls import path, include
 from articleapp.views import ArticleListView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-
-    path('accounts/', include('Accountapp.urls')),
-
-    path('profiles/', include('profileapp.urls')),
-
-    path('articles/', include('articleapp.urls')),
-
-    path('comments/', include('commentapp.urls')),
-
-    path('', ArticleListView.as_view(), name='home')
-
+    path("admin/", admin.site.urls),
+    path("accounts/", include("Accountapp.urls")),
+    path("profiles/", include("profileapp.urls")),
+    path("articles/", include("articleapp.urls")),
+    path("comments/", include("commentapp.urls")),
+    path("subscribe/", include("subscribeapp.urls")),
+    path("", ArticleListView.as_view(), name="home"),
 ] + static(
-    settings.MEDIA_URL, document_root=settings.MEDIA_ROOT,
+    settings.MEDIA_URL,
+    document_root=settings.MEDIA_ROOT,
 )
-

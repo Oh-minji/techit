@@ -5,13 +5,13 @@
 {% block content %}
 
 
-<div class = "my-5 text-center">
+<div class="my-5 text-center">
 
-    <div class = "my-5", style = "font-family: 'Gowun Batang', serif;
+    <div class="my-5" , style="font-family: 'Gowun Batang', serif;
 font-family: 'IBM Plex Sans KR', sans-serif;">
         <div>
             <img src="{{ target_user.profile.image.url }}" alt="이미지가 업로드 되지 않았습니다"
-            style = "height: 15rem; width: 15rem; border-radius: 100rem;">
+                 style="height: 15rem; width: 15rem; border-radius: 100rem;">
         </div>
         {% if target_user.profile %}
         <h1>
@@ -30,36 +30,30 @@ font-family: 'IBM Plex Sans KR', sans-serif;">
         </h1>
         {% endif %}
     </div>
-    <div style = "max-width: 900px; margin: auto; font-family: 'Gowun Batang', serif;
+    <div style="max-width: 900px; margin: auto; font-family: 'Gowun Batang', serif;
 font-family: 'IBM Plex Sans KR', sans-serif;">
 
         {% if user == target_user %}
         <div>
             <a href="{% url 'accountapp:update' pk=target_user.pk %}">
-            <div class="btn btn-warning rounded-pill px-5 my-5">
-                개인정보 수정하기
-            </div>
+                <div class="btn btn-warning rounded-pill px-5 my-5">
+                    개인정보 수정하기
+                </div>
             </a>
             {% if target_user.profile %}
             <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
-            <div class="btn btn-warning rounded-pill px-5 my-5">
-                프로필 수정하기
-            </div>
+                <div class="btn btn-warning rounded-pill px-5 my-5">
+                    프로필 수정하기
+                </div>
             </a>
             {% endif %}
         </div>
         {% endif %}
     </div>
 
-    <div>
-        <a href="{% url 'articleapp:create' %}"
-        class="btn btn-primary rounded-pill px-5 my-5"
-        style = "font-family: 'Gowun Batang', serif;
-font-family: 'IBM Plex Sans KR', sans-serif;">
-            게시글 작성하기
-        </a>
-    </div>
-
 
 </div>
+
+{% include 'list_fragment.html' with article_list=object_list %}
+
 {% endblock %}
