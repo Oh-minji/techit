@@ -1,6 +1,3 @@
+app_name = "subscribeapp"
 
-app_name = 'subscribeapp'
-
-urlpatterns = [
-
-]
+urlpatterns = []

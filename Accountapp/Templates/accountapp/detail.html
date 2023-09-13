@@ -48,6 +48,16 @@ font-family: 'IBM Plex Sans KR', sans-serif;">
             </a>
             {% endif %}
         </div>
+        {% else %}
+
+        <div>
+            <a href="{% url 'subscribeapp:sub' pk=target_user.pk %}">
+                <div class="btn btn-outline-success rounded-pill px-5 my-5">
+                    구독하기
+                </div>
+            </a>
+
+        </div>
         {% endif %}
     </div>
 
