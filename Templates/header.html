@@ -2,18 +2,20 @@
 
     <div>
         <a href="{% url 'home' %}">
-        <h1 class="my-5" style ="font-family: 'Gowun Batang', serif;"> 우리가족 사진첩</h1>
+            <h1 class="my-5" style="font-family: 'Gowun Batang', serif;"> 우리가족 사진첩</h1>
         </a>
     </div>
-    <div class = "mb-4" style = "font-family: 'Gowun Batang', serif;
+    <div class="mb-4" style="font-family: 'Gowun Batang', serif;
 font-family: 'IBM Plex Sans KR', sans-serif;">
          <span>
              <a href="{% url 'home' %}">
                  추억폴더 &nbsp;&nbsp;&nbsp;&nbsp;
              </a>
          </span>
-         <span>스텔업은? &nbsp;&nbsp;&nbsp;&nbsp;</span>
-         <span>안내 &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>
+            <a href="{% url 'subscribeapp:list' %}">구독현황 &nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </span>
+        <span>안내 &nbsp;&nbsp;&nbsp;&nbsp;</span>
         {% if user.is_authenticated %}
         <span>
             <a href="{% url 'accountapp:detail' pk=user.pk %}">
