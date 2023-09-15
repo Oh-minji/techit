@@ -23,7 +23,7 @@ from articleapp.views import ArticleListView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("accounts/", include("Accountapp.urls")),
+    path("accounts/", include("accountapp.urls")),
     path("profiles/", include("profileapp.urls")),
     path("articles/", include("articleapp.urls")),
     path("comments/", include("commentapp.urls")),
