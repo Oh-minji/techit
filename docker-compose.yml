@@ -1,0 +1,7 @@
+version: "3.7"
+
+services:
+  django:
+    image: family-photos:0.4
+    ports:
+      - 8080:8000
