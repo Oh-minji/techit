@@ -19,6 +19,11 @@ services:
     volumes:
       - media_volume:/home/techit/media/
       - static_volume:/home/techit/staticfiles/
+    secrets:
+      - MARIADB_USER
+      - MARIADB_PASSWORD
+      - MARIADB_ROOT_PASSWORD
+      - MARIADB_DATABASE
 
   mariadb:
     image: mariadb:11.0
@@ -31,6 +36,12 @@ services:
       MARIADB_PASSWORD: dhalswl94
       MARIADB_ROOT_PASSWORD: dhalswl94
       MARIADB_DATABASE: mariadb
+    secrets:
+      - MARIADB_USER
+      - MARIADB_PASSWORD
+      - MARIADB_ROOT_PASSWORD
+      - MARIADB_DATABASE
+
 
 
 networks:
